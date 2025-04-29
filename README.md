@@ -8,10 +8,10 @@ A real-time IoT-based solution to monitor essential resources like **water**, **
 
 - 📡 Real-time Data Acquisition (ESP32 + MQTT)
 - 📊 Interactive Dashboards (Grafana / Plotly Dash)
-- ⚠️ Anomaly Detection (using Isolation Forest)
-- 🔮 Predictive Analytics (LSTM with TensorFlow)
-- 📲 Automated Alerts via SMS (Twilio)
-- 📦 Docker-Ready Deployment
+- ⚠️ Anomaly Detection (Isolation Forest)
+- 🔮 Predictive Analytics (LSTM + TensorFlow)
+- 📲 SMS/Email Alerts (Twilio / AWS SNS)
+- 🐳 Docker-Ready Deployment
 
 ---
 
@@ -20,7 +20,7 @@ A real-time IoT-based solution to monitor essential resources like **water**, **
 ![System Architecture](images/system-architecture.png)
 
 **Data Flow**:
-ESP32 Sensors → MQTT → Flask API → InfluxDB → ML Models → Grafana Dashboard & Alerts
+ESP32 Sensors → MQTT → Flask API → InfluxDB → ML Models → Dashboard/Alerts
 
 
 ---
@@ -39,45 +39,35 @@ ESP32 Sensors → MQTT → Flask API → InfluxDB → ML Models → Grafana Dash
   "water_level": 15.6
 }
 
-2️⃣ Backend & ML Engine
-API: Python + Flask to receive and store data
+### 2️⃣ Backend & ML Engine
+API: Flask API receives data from sensors
 
-Database: InfluxDB (optimized time-series DB)
+Database: InfluxDB for time-series storage
 
 ML Models:
 
 Isolation Forest for anomaly detection
 
-LSTM (TensorFlow) for prediction
+LSTM (TensorFlow) for forecasting
 
 
-3️⃣ Visualization & Alerts
-Dashboards: Plotly Dash or Grafana
+### 3️⃣ Visualization & Alerts
+Dashboards: Real-time dashboards with Plotly Dash or Grafana
 
-Alerts: Twilio (SMS), AWS SNS (Email)
+Alerts: Configurable thresholds trigger SMS/Email notifications
 
-UI Features:
-
-Real-time graphs
-
-Trend analysis
-
-Anomaly markers
-
-🧠 Machine Learning
-🔍 Anomaly Detection:
-
+## 🧠Machine Learning Highlights
+###🔍 Anomaly Detection (Isolation Forest):
 model = IsolationForest()
 df['anomaly'] = model.fit_predict(df[['temperature', 'humidity', 'water_level']])
 
-📈 Prediction:
-
-model = LSTM(...)
+###📈 Prediction (LSTM):
+model = Sequential()
+model.add(LSTM(...))
 model.fit(X_train, y_train)
 
-🐳 Docker Deployment
-
-# docker-compose.yml
+## 🐳 Docker Deployment
+version: '3'
 services:
   flaskapp:
     build: ./flask_app
@@ -88,36 +78,38 @@ services:
     ports:
       - "8086:8086"
 
+##📁 Folder Structure
 iot-resource-monitoring/
-├── esp32/                  # C++ code for ESP32
-├── flask_app/              # Flask API and ML code
-├── dashboard/              # Dash/Grafana visualization
+├── esp32/                  # ESP32 sensor code (C++)
+├── flask_app/              # Flask backend and ML scripts
+├── dashboard/              # Dash or Grafana visualization
 ├── docker-compose.yml
 ├── README.md
-└── images/                 # Architecture and screenshots
+└── images/                 # System diagrams and screenshots
 
-📲 Alert Example (Twilio SMS)
-"🚨 Anomaly Detected: Water usage spike at 3:45 PM"
 
-📚 References
+##📲 Alert Example (Twilio SMS)
+"🚨 Alert: Water level dropped below threshold at 14:22."
+
+##📚 References
 MQTT
 
 Grafana
 
-ESP32 Arduino Core
-
 InfluxDB
 
-Twilio API
+Twilio SMS API
 
-✨ Future Enhancements
+TensorFlow
+
+##✨ Future Enhancements
 🤖 Edge AI with TensorFlow Lite on ESP32
 
 ☁️ Multi-Tenant SaaS with AWS IoT Core
 
-🔒 Blockchain-backed data logging
+🔐 Blockchain for tamper-proof logs
 
-🤝 Contributors
+##🤝 Contributors
 Priyanshu Sharma (12311900)
 
 Shivanshu Singh (12315457)
