@@ -17,7 +17,6 @@ A real-time IoT-based solution to monitor essential resources like **water**, **
 
 ## 🏗️ System Architecture
 
-![System Architecture](images/system-architecture.png)
 
 **Data Flow**:
 ```
@@ -40,7 +39,7 @@ ESP32 Sensors → MQTT → Flask API → InfluxDB → ML Models → Dashboard/Al
   "water_level": 15.6
 }
 ```
-![ESP32 Setup](images/esp32-setup.jpg)
+
 
 ---
 
@@ -52,7 +51,7 @@ ESP32 Sensors → MQTT → Flask API → InfluxDB → ML Models → Dashboard/Al
   - Isolation Forest for anomaly detection  
   - LSTM (TensorFlow) for forecasting  
 
-![Backend Flow](images/backend-flow.png)
+
 
 ---
 
@@ -61,7 +60,7 @@ ESP32 Sensors → MQTT → Flask API → InfluxDB → ML Models → Dashboard/Al
 - **Dashboards**: Real-time dashboards with Plotly Dash or Grafana  
 - **Alerts**: Configurable thresholds trigger SMS/Email notifications
 
-![Dashboard Screenshot](images/dashboard-screenshot.png)
+
 
 ---
 
@@ -145,6 +144,3 @@ iot-resource-monitoring/
 
 ---
 
-## 📌 License
-
-MIT License © 2025
